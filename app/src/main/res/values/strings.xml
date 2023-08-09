@@ -12,4 +12,7 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="name_of_student">Мельник Ігнатій</string>
     <string name="close">Close</string>
+    <string name="material">Material</string>
+    <string name="schedule">Schedule</string>
+    <string name="messages">Messages</string>
 </resources>
