@@ -8,10 +8,12 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.jetiq.MainActivity
 import com.example.jetiq.R
 import com.example.jetiq.databinding.FragmentHomeBinding
 import com.example.jetiq.ui.message.MessageFragment
 import com.example.jetiq.ui.message.MessageViewModel
+import com.google.android.material.snackbar.Snackbar
 
 class HomeFragment : Fragment() {
 
@@ -45,22 +47,20 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        Toast.makeText(context, "smth", Toast.LENGTH_LONG).show()
 
         val fragmentManager = childFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
 
         binding.smth.setOnClickListener {
             Toast.makeText(requireContext(), "smth", Toast.LENGTH_LONG).show()
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show() as MainActivity
         }
 
         binding.imageButtonMessageFragmentHome.setOnClickListener {
 
             Toast.makeText(context, "smth", Toast.LENGTH_LONG).show()
-            val messageFragment = MessageFragment()
-            fragmentTransaction.add(R.id.nav_view, messageFragment, "messageFragmentTag")
-            fragmentTransaction.addToBackStack(null)
-            fragmentTransaction.commit()
+
         }
 
     }
