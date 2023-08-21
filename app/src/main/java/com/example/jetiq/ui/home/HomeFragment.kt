@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
 
 
         val fragmentManager = childFragmentManager
-        val fragmentTransaction = fragmentManager.beginTransaction()
+        val fragmentTransaction = fragmentManager.beginTransaction().commit()
 
         binding.smth.setOnClickListener {
             Toast.makeText(requireContext(), "smth", Toast.LENGTH_LONG).show()
