@@ -109,11 +109,15 @@ class SubjectsAdapter(
         }
 
         viewHolder.tvSubjectName.text = items[position]
+        viewHolder.tvSubjectNumber.text = (position + 1).toString()
+
 
         return view
     }
 
     private class ItemHolder(row: View?) {
         val tvSubjectName: TextView = row?.findViewById(R.id.tvSubjectName) as TextView
+        val tvSubjectNumber: TextView = row?.findViewById(R.id.tvSubjectNumber) as TextView
+
     }
 }
