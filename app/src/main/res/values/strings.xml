@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">JetIq</string>
     <string name="schedule_of_classes">Schedule of classes</string>
+    <string name="i_am_in_university">I am in University</string>
 </resources>

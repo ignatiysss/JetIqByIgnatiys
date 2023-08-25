@@ -21,12 +21,16 @@ class ScheduleFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val subjects = listOf(
-            "Математика",
-            "Фізика",
-            "Програмування",
-            "Компютерно дискретна математика",
-            "Вища математка"
-        )
+        "Математика",
+        "Фізика",
+        "Програмування",
+        "Компютерно дискретна математика",
+        "Вища математка",
+        "String",
+        "String",
+        "String"
+    )
+
     private fun showInfoDialog(subject: String) {
         val message = """
         Додаткова інформація про $subject
@@ -49,13 +53,17 @@ class ScheduleFragment : Fragment() {
 
         // Зміна фону діалогового вікна
         dialog.setOnShowListener {
-            val background = ColorDrawable(ContextCompat.getColor(requireContext(), R.color.dialogBackgroundColor))
+            val background = ColorDrawable(
+                ContextCompat.getColor(
+                    requireContext(),
+                    R.color.dialogBackgroundColor
+                )
+            )
             dialog.window?.setBackgroundDrawable(background)
         }
 
         dialog.show()
     }
-
 
 
     override fun onCreateView(
@@ -73,10 +81,11 @@ class ScheduleFragment : Fragment() {
         binding.listViewSubjects.adapter =
             SubjectsAdapter(requireContext(), R.layout.item_subject, subjects)
 
-        binding.listViewSubjects.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
-            val subject = subjects[position]
-            showInfoDialog(subject)
-        }
+        binding.listViewSubjects.onItemClickListener =
+            AdapterView.OnItemClickListener { _, _, position, _ ->
+                val subject = subjects[position]
+                showInfoDialog(subject)
+            }
 
     }
 
