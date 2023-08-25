@@ -2,4 +2,13 @@
     <string name="app_name">JetIq</string>
     <string name="schedule_of_classes">Schedule of classes</string>
     <string name="i_am_in_university">I am in University</string>
+    <string name="nav_header_desc">Your Description Here</string>
+    <string name="nav_header_title">Your Title Here</string>
+    <string name="nav_header_subtitle">Your Subtitle Here</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+
 </resources>
