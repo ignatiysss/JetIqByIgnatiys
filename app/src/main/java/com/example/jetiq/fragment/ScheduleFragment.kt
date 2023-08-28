@@ -25,10 +25,7 @@ class ScheduleFragment : Fragment() {
         "Фізика",
         "Програмування",
         "Компютерно дискретна математика",
-        "Вища математка",
-        "String",
-        "String",
-        "String"
+        "Вища математка"
     )
 
     private fun showInfoDialog(subject: String) {

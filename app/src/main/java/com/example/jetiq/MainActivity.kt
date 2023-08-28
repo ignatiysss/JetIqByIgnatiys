@@ -2,6 +2,7 @@ package com.example.jetiq
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -32,15 +33,6 @@ class MainActivity : AppCompatActivity() {
         toggle.syncState()
 
 
-
-        navigationView.setNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-               R.id.action_settings -> Toast.makeText(this, "Settings", Toast.LENGTH_LONG)
-            }
-            drawer.closeDrawer(GravityCompat.START)
-            true
-        }
-
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragmentContainer, ScheduleFragment())
         transaction.commit()
@@ -49,6 +41,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_settings -> {
+                Toast.makeText(this, "Settings", Toast.LENGTH_LONG).show()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 

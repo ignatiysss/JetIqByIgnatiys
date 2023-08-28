@@ -11,5 +11,12 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
+    <string name="menu_schedule">Schedule</string>
+    <string name="menu_material">Material</string>
+    <string name="test_book">Test book</string>
+    <string name="success_log">Success log</string>
+    <string name="profile_photo">Profile photo</string>
+    <string name="nav_header_name">Ihnatii Melnyk</string>
+    <string name="nav_header_group">1-PI 22-B</string>
 
 </resources>
