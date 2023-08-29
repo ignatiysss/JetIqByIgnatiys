@@ -10,6 +10,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import com.example.jetiq.fragment.HomeFragment
+import com.example.jetiq.fragment.SettingsFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,9 +34,10 @@ class MainActivity : AppCompatActivity() {
         drawer.addDrawerListener(toggle)
         toggle.syncState()
 
-
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentContainer, ScheduleFragment())
+        transaction.addToBackStack(null)
+
+        transaction.replace(R.id.fragmentContainer_content_view, HomeFragment())
         transaction.commit()
     }
 
@@ -47,6 +50,11 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.action_settings -> {
                 Toast.makeText(this, "Settings", Toast.LENGTH_LONG).show()
+                val transaction = supportFragmentManager.beginTransaction()
+                transaction.addToBackStack(null)
+
+                transaction.replace(R.id.fragmentContainer_content_view, SettingsFragment())
+                transaction.commit()
                 return true
             }
         }
