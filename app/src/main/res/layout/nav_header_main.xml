@@ -41,6 +41,11 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name_of_faculty" />
+
+        <TextView
             android:id="@+id/textViewGroupNacHeader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
