@@ -10,17 +10,22 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import com.example.jetiq.databinding.ActivityMainBinding
+import com.example.jetiq.databinding.AppBarMainBinding
 import com.example.jetiq.fragment.HomeFragment
+import com.example.jetiq.fragment.MessageFragment
 import com.example.jetiq.fragment.SettingsFragment
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var drawer: DrawerLayout
+    private lateinit var binding: ActivityMainBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -36,9 +41,14 @@ class MainActivity : AppCompatActivity() {
 
         val transaction = supportFragmentManager.beginTransaction()
         transaction.addToBackStack(null)
+            .replace(R.id.fragmentContainer_content_view, HomeFragment()).commit()
 
-        transaction.replace(R.id.fragmentContainer_content_view, HomeFragment())
-        transaction.commit()
+        findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fab).setOnClickListener {
+            val transactionForFab = supportFragmentManager.beginTransaction()
+            transactionForFab.replace(R.id.fragmentContainer_content_view, MessageFragment())
+                .addToBackStack(null).commit()
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
