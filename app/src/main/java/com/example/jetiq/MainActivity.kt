@@ -10,14 +10,17 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
+import androidx.fragment.app.FragmentTransaction
 import com.example.jetiq.databinding.ActivityMainBinding
 import com.example.jetiq.databinding.AppBarMainBinding
 import com.example.jetiq.fragment.HomeFragment
 import com.example.jetiq.fragment.MessageFragment
 import com.example.jetiq.fragment.SettingsFragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var fab: FloatingActionButton
     private lateinit var drawer: DrawerLayout
     private lateinit var binding: ActivityMainBinding
 
@@ -39,16 +42,19 @@ class MainActivity : AppCompatActivity() {
         drawer.addDrawerListener(toggle)
         toggle.syncState()
 
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.addToBackStack(null)
+        supportFragmentManager.beginTransaction().addToBackStack(null)
             .replace(R.id.fragmentContainer_content_view, HomeFragment()).commit()
 
-        findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fab).setOnClickListener {
-            val transactionForFab = supportFragmentManager.beginTransaction()
-            transactionForFab.replace(R.id.fragmentContainer_content_view, MessageFragment())
-                .addToBackStack(null).commit()
-        }
+        fab =
+            findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fab)
+        fab.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer_content_view, MessageFragment())
+                .addToBackStack(null)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .commit()
 
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -59,12 +65,10 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_settings -> {
-                Toast.makeText(this, "Settings", Toast.LENGTH_LONG).show()
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.addToBackStack(null)
-
-                transaction.replace(R.id.fragmentContainer_content_view, SettingsFragment())
-                transaction.commit()
+                    .replace(R.id.fragmentContainer_content_view, SettingsFragment())
+                    .commit()
                 return true
             }
         }
