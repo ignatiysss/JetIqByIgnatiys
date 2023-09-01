@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.jetiq.MainActivity
 import com.example.jetiq.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -25,15 +26,22 @@ class MessageFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        // Hide the FAB
-        (activity as? MainActivity)?.fab?.hide()
+        // Change the FAB properties for the MessageFragment
+        (activity as? MainActivity)?.fab?.apply {
+            setImageResource(R.drawable.baseline_edit_24) // Change the icon
+
+        }
     }
 
     override fun onPause() {
         super.onPause()
-        // Show the FAB
-        (activity as? MainActivity)?.fab?.show()
+        // Reset the FAB properties to the default
+        (activity as? MainActivity)?.fab?.apply {
+            setImageResource(R.drawable.baseline_message_24) // Reset the icon
+
+        }
     }
+
 
 
     override fun onDestroy() {

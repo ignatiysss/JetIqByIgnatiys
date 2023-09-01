@@ -1,26 +1,26 @@
 <resources>
     <string name="app_name">JetIq</string>
-    <string name="schedule_of_classes">Schedule of classes</string>
-    <string name="i_am_in_university">I am in University</string>
+    <string name="schedule_of_classes">Розклад занять</string>
+    <string name="i_am_in_university">Я в університеті</string>
     <string name="nav_header_desc">Your Description Here</string>
     <string name="nav_header_title">Your Title Here</string>
     <string name="nav_header_subtitle">Your Subtitle Here</string>
-    <string name="action_settings">Settings</string>
-    <string name="menu_home">Home</string>
+    <string name="action_settings">Налаштування</string>
+    <string name="menu_home">Головна</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
-    <string name="navigation_drawer_open">Open</string>
-    <string name="navigation_drawer_close">Close</string>
-    <string name="menu_schedule">Schedule</string>
-    <string name="menu_material">Material</string>
-    <string name="test_book">Test book</string>
-    <string name="success_log">Success log</string>
-    <string name="profile_photo">Profile photo</string>
-    <string name="nav_header_name">Ihnatii Melnyk</string>
-    <string name="nav_header_group">1-PI 22-B</string>
+    <string name="navigation_drawer_open">Відкрити</string>
+    <string name="navigation_drawer_close">Закрити</string>
+    <string name="menu_schedule">Розклад</string>
+    <string name="menu_material">Матеріали</string>
+    <string name="test_book">Залікова книжка</string>
+    <string name="success_log">Журнал успішності</string>
+    <string name="profile_photo">Фото профілю</string>
+    <string name="nav_header_name">Ігнатій Мельник</string>
+    <string name="nav_header_group">1-ПІ 22-Б</string>
     <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <string name="messages_header">Повідомлення</string>
+    <string name="sync_header">Сигхронізація</string>
 
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>
@@ -33,6 +33,7 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="name_of_faculty">FITKI</string>
+    <string name="name_of_faculty">Фіткі</string>
+    <string name="no_messages">Поки що немає повідомлень\nможеш відпочиваати</string>
 
 </resources>
