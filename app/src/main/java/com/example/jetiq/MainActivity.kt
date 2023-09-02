@@ -12,9 +12,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.replace
 import com.example.jetiq.databinding.ActivityMainBinding
 import com.example.jetiq.fragment.HomeFragment
 import com.example.jetiq.fragment.MessageFragment
+import com.example.jetiq.fragment.ScheduleMainFragment
 import com.example.jetiq.fragment.SettingsFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
@@ -50,14 +52,47 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener {
             if (currentFragment() is MessageFragment) {
 
-                    // Change the click listener
-                    Toast.makeText(this, "Clicked in MessageFragment", Toast.LENGTH_SHORT).show()
+                // Change the click listener
+                Toast.makeText(this, "Clicked in MessageFragment", Toast.LENGTH_SHORT).show()
 
             } else {
                 // Do default action
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.fragmentContainer_content_view, MessageFragment())
                     .addToBackStack(null).commit()
+            }
+        }
+
+        findViewById<NavigationView>(R.id.nav_view).setNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.nav_home -> {
+                    Toast.makeText(this, "Додому", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                R.id.nav_schedule -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer_content_view, ScheduleMainFragment())
+                        .addToBackStack(null).commit()
+                    true
+                }
+
+                R.id.nav_material -> {
+                    Toast.makeText(this, "Матеріали", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                R.id.nav_success_log -> {
+                    Toast.makeText(this, "Журнал успіхів", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                R.id.na_test_book -> {
+                    Toast.makeText(this, "Тестова книга", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                else -> false
             }
         }
 
