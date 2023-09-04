@@ -22,6 +22,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
+    //TODO add direction (gmaps) for schedule
     lateinit var fab: FloatingActionButton
     private lateinit var drawer: DrawerLayout
     private lateinit var binding: ActivityMainBinding
@@ -40,8 +41,8 @@ class MainActivity : AppCompatActivity() {
         val toggle = ActionBarDrawerToggle(
             this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
-
         drawer.addDrawerListener(toggle)
+        drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
         toggle.syncState()
 
         supportFragmentManager.beginTransaction().addToBackStack(null)
@@ -66,7 +67,10 @@ class MainActivity : AppCompatActivity() {
         findViewById<NavigationView>(R.id.nav_view).setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_home -> {
-                    Toast.makeText(this, "Додому", Toast.LENGTH_SHORT).show()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer_content_view, HomeFragment())
+                        .addToBackStack(null).commit()
+                    drawer.closeDrawers()
                     true
                 }
 
@@ -74,6 +78,7 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.fragmentContainer_content_view, ScheduleMainFragment())
                         .addToBackStack(null).commit()
+                    drawer.closeDrawers()
                     true
                 }
 
