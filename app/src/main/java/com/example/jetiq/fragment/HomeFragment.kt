@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.jetiq.R
-import com.example.jetiq.ScheduleFragment
 import com.example.jetiq.databinding.FragmentHomeBinding
 
 

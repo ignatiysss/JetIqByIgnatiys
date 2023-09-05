@@ -11,8 +11,6 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
-import androidx.fragment.app.replace
 import com.example.jetiq.databinding.ActivityMainBinding
 import com.example.jetiq.fragment.HomeFragment
 import com.example.jetiq.fragment.MessageFragment
@@ -36,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         drawer = findViewById(R.id.drawer_layout)
-        val navigationView: NavigationView = findViewById(R.id.nav_view)
 
         val toggle = ActionBarDrawerToggle(
             this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -49,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragmentContainer_content_view, HomeFragment()).commit()
 
         fab =
-            findViewById<com.google.android.material.floatingactionbutton.FloatingActionButton>(R.id.fab)
+            findViewById(R.id.fab)
         fab.setOnClickListener {
             if (currentFragment() is MessageFragment) {
 
@@ -127,6 +124,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START)

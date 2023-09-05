@@ -1,19 +1,20 @@
-package com.example.jetiq
+package com.example.jetiq.fragment
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.content.Context
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Toast
-import androidx.fragment.app.Fragment
-import com.example.jetiq.databinding.FragmentScheduleBinding
-import android.content.Context
-import android.graphics.drawable.ColorDrawable
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
+import com.example.jetiq.R
+import com.example.jetiq.databinding.FragmentScheduleBinding
 
 
 class ScheduleFragment : Fragment() {
@@ -70,7 +71,7 @@ class ScheduleFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentScheduleBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -105,6 +106,7 @@ class SubjectsAdapter(
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
 
+    @SuppressLint("SetTextI18n")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         val view: View
         val viewHolder: ItemHolder
