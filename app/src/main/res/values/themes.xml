@@ -4,6 +4,10 @@
     <style name="Base.Theme.JetIq" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <item name="customBackgroundColor">@color/colorPrimary</item>
+        <item name="customCircleColor">@color/colorForCircleBackgroundForItemSubject</item>
+
     </style>
 
     <style name="Theme.JetIq" parent="Base.Theme.JetIq" />

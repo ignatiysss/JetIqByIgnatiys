@@ -15,4 +15,15 @@
         <item>4</item>
     </string-array>
 
+    <string-array name="theme_names">
+        <item>Світла</item>
+        <item>Темна</item>
+    </string-array>
+
+    <string-array name="theme_values">
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
+
+
 </resources>

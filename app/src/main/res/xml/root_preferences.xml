@@ -27,4 +27,12 @@
         app:key="wifi_scanning"
         app:title="Сканування Wi-Fi" />
 
+    <ListPreference
+        app:key="theme_preference"
+        app:title="Вибрати тему"
+        app:defaultValue="light"
+        app:entries="@array/theme_names"
+        app:entryValues="@array/theme_values" />
+
+
 </PreferenceScreen>

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="180dp"
     android:fitsSystemWindows="true"
-    android:background="#7249A3" >
+    android:background="?attr/customBackgroundColor" >
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageProfile"

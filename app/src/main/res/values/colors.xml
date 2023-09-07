@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="dialogBackgroundColor">#000B0B0B</color>
+    <color name="colorPrimary">#7249A3</color>
+    <color name="colorPrimaryNight">#AD00FF</color>
+    <color name="colorForCircleBackgroundForItemSubject">#ababab</color>
+    <color name="colorForCircleBackgroundForItemSubjectNight">#2b2b2b</color>
+
 </resources>
