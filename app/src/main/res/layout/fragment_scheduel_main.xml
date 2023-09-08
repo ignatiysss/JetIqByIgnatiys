@@ -6,47 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".fragment.ScheduleMainFragment">
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationViewForScheduleMain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_schedule_main_menu" />
+
+    <FrameLayout
+        android:id="@+id/fragmentContainerForScheduleMain"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationViewForScheduleMain"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <com.google.android.material.bottomappbar.BottomAppBar
-            android:id="@+id/bottom_app_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+        <androidx.fragment.app.FragmentContainerView
             android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_gravity="bottom"
-            android:backgroundTint="#0000FF"
-            app:fabCradleMargin="15dp"
-            app:fabCradleRoundedCornerRadius="10dp"
-            app:fabCradleVerticalOffset="10dp"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="VisualLintBottomAppBar">
-
-        </com.google.android.material.bottomappbar.BottomAppBar>
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="58dp"
-            android:layout_height="40dp"
-            android:alpha="0"
-            android:contentDescription="@string/message"
-            android:scaleType="center"
-            android:scaleY="2"
-            app:layout_anchor="@id/bottom_app_bar" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="58dp"
-            android:layout_height="80dp"
-            android:layout_marginBottom="25dp"
-            android:contentDescription="@string/message"
-            android:scaleType="center"
-            app:layout_anchor="@id/bottom_app_bar"
-            app:layout_anchorGravity="center"
-            app:maxImageSize="56dp" />
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
+            android:layout_height="match_parent"
+            android:name="com.example.jetiq.fragment.LessonsFragment"
+            tools:ignore="MissingClass,MissingId" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

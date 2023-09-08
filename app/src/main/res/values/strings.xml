@@ -21,5 +21,10 @@
     <string name="name_of_faculty">Фіткі</string>
     <string name="no_messages">Поки що немає повідомлень\nможеш відпочиваати</string>
     <string name="message">Message</string>
+    <string name="bells">Дзвінки</string>
+    <string name="lessons">Уроки</string>
+    <string name="sessions">Сесії</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
