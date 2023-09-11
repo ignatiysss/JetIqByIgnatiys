@@ -1,6 +1,5 @@
 package com.example.jetiq
 
-import ScheduleMainFragment
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -14,6 +13,7 @@ import androidx.fragment.app.Fragment
 import com.example.jetiq.databinding.ActivityMainBinding
 import com.example.jetiq.fragment.HomeFragment
 import com.example.jetiq.fragment.MessageFragment
+import com.example.jetiq.fragment.ScheduleMainFragment
 import com.example.jetiq.fragment.SettingsFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
