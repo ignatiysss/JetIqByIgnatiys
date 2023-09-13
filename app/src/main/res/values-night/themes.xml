@@ -6,6 +6,7 @@
 
         <item name="customBackgroundColor">@color/colorPrimaryNight</item>
         <item name="customCircleColor">@color/colorForCircleBackgroundForItemSubjectNight</item>
+        <item name="customTextColorForToolBar" >@color/colorTextNight</item>
 
     </style>
 </resources>

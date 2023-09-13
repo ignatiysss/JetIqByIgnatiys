@@ -3,4 +3,5 @@
     <!-- Custom theme attributes -->
     <attr name="customBackgroundColor" format="reference" />
     <attr name="customCircleColor" format="reference" />
+    <attr name="customTextColorForToolBar" format="reference" />
 </resources>
