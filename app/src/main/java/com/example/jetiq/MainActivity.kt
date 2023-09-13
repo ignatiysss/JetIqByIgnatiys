@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var fab: FloatingActionButton
     private lateinit var drawer: DrawerLayout
     private lateinit var binding: ActivityMainBinding
-
+    public lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         drawer = findViewById(R.id.drawer_layout)
 
-        val toggle = ActionBarDrawerToggle(
+        toggle = ActionBarDrawerToggle(
             this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
         )
         drawer.addDrawerListener(toggle)

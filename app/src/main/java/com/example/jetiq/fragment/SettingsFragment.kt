@@ -1,11 +1,16 @@
 package com.example.jetiq.fragment
 
 import android.content.SharedPreferences
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.ContextCompat
 import androidx.preference.PreferenceFragmentCompat
+import com.example.jetiq.MainActivity
 import com.example.jetiq.R
 
+@Suppress("DEPRECATION")
 class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
@@ -30,15 +35,31 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
     }
 
     private fun applyTheme(themeOption: String?) {
-        when(themeOption) {
+        val mainActivity = activity as? MainActivity
+        val toggleDrawable = mainActivity?.toggle
+
+        when (themeOption) {
             "light" -> {
-                // Apply light theme
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                if (toggleDrawable != null) {
+                    toggleDrawable.drawerArrowDrawable.colorFilter =
+                        PorterDuffColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.colorText),
+                            PorterDuff.Mode.SRC_ATOP
+                        )
+                }
             }
             "dark" -> {
-                // Apply dark theme
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                if (toggleDrawable != null) {
+                    toggleDrawable.drawerArrowDrawable.colorFilter =
+                        PorterDuffColorFilter(
+                            ContextCompat.getColor(requireContext(), R.color.colorTextNight),
+                            PorterDuff.Mode.SRC_ATOP
+                        )
+                }
             }
         }
     }
+
 }

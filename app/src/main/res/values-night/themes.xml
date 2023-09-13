@@ -7,6 +7,10 @@
         <item name="customBackgroundColor">@color/colorPrimaryNight</item>
         <item name="customCircleColor">@color/colorForCircleBackgroundForItemSubjectNight</item>
         <item name="customTextColorForToolBar" >@color/colorTextNight</item>
+        <item name="customItemColorForToolBar">@drawable/baseline_settings_24</item>
+        <item name="android:itemTextAppearance">@color/colorTextNight</item>
 
     </style>
+
+
 </resources>

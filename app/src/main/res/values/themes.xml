@@ -8,10 +8,14 @@
         <item name="customBackgroundColor">@color/colorPrimary</item>
         <item name="customCircleColor">@color/colorForCircleBackgroundForItemSubject</item>
         <item name="customTextColorForToolBar">@color/colorText</item>
+        <item name="customItemColorForToolBar">@drawable/baseline_settings_white_24</item>
+        <item name="android:itemTextAppearance">@color/colorText</item>
 
     </style>
 
     <style name="Theme.JetIq" parent="Base.Theme.JetIq" />
+
+
 
     <style name="Theme.MyApplicationNavDrawer.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
