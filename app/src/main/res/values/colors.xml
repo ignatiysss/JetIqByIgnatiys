@@ -4,8 +4,10 @@
     <color name="colorPrimary">#7249A3</color>
     <color name="colorPrimaryNight">#AD00FF</color>
     <color name="colorForCircleBackgroundForItemSubject">#ababab</color>
-    <color name="colorForCircleBackgroundForItemSubjectNight">#2b2b2b</color>
+    <color name="colorForCircleBackgroundForItemSubjectNight">#ababab</color>
     <color name="colorText">#FFFFFF</color>
     <color name="colorTextNight">#000000</color>
+    <color name="colorForDialogBackground">#FFFFFF</color>
+    <color name="colorForDialogBackgroundNight">#000000</color>
 
 </resources>

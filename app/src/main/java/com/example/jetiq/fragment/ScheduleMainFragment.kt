@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.jetiq.MainActivity
 import com.example.jetiq.R
 import com.example.jetiq.databinding.FragmentScheduelMainBinding
 
@@ -12,7 +13,7 @@ class ScheduleMainFragment : Fragment() {
     private lateinit var _binding: FragmentScheduelMainBinding
     private val binding get() = _binding
 
-    override fun onCreateView(
+        override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
@@ -38,5 +39,20 @@ class ScheduleMainFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as? MainActivity)?.fab?.apply {
+            visibility = View.GONE
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        (activity as? MainActivity)?.fab?.apply {
+            visibility = View.VISIBLE
+        }
+
     }
 }

@@ -1,60 +1,83 @@
 package com.example.jetiq.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.jetiq.R
+import com.example.jetiq.databinding.FragmentBellsBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [BellsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class BellsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    lateinit var binding: FragmentBellsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bells, container, false)
+        binding = FragmentBellsBinding.inflate(inflater, container, false)
+
+        val bellsList = listOf(
+            "08:15 - 09:00",
+            "09:15 - 10:00",
+            "10:15 - 11:00",
+            "11:15 - 12:00",
+            "12:15 - 13:00",
+            "13:15 - 14:00",
+            "14:15 - 15:00",
+            "15:10 - 15:55",
+            "16:05 - 16:50",
+            "17:00 - 17:45",
+            "17:55 - 18:40",
+            "18:50 - 19:35",
+            "19:45 - 20:25",
+            "20:35 - 21:15"
+        )
+
+        binding.listViewBells.divider = null
+        binding.listViewBells.adapter = BellsAdapter(
+            requireContext(),
+            R.layout.item_subject,
+            bellsList
+        )
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment BellsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            BellsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    class BellsAdapter(
+        context: Context,
+        private val resource: Int,
+        private val items: List<String>
+    ) : ArrayAdapter<String>(context, resource, items) {
+
+        private val inflater: LayoutInflater = LayoutInflater.from(context)
+
+        override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+            val view: View
+            val viewHolder: ItemHolder
+
+            if (convertView == null) {
+                view = inflater.inflate(resource, parent, false)
+                viewHolder = ItemHolder(view)
+                view.tag = viewHolder
+            } else {
+                view = convertView
+                viewHolder = view.tag as ItemHolder
             }
+
+            viewHolder.tvSubjectName.text = items[position]
+            viewHolder.tvSubjectNumber.text = (position + 1).toString()
+
+            return view
+        }
+
+        private class ItemHolder(row: View) {
+            val tvSubjectName: TextView = row.findViewById(R.id.tvSubjectName)
+            val tvSubjectNumber: TextView = row.findViewById(R.id.tvSubjectNumber)
+        }
     }
 }

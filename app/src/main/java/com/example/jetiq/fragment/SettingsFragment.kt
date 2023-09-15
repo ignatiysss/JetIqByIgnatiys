@@ -6,12 +6,15 @@ import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.blue
+import androidx.core.graphics.toColor
 import androidx.preference.PreferenceFragmentCompat
 import com.example.jetiq.MainActivity
 import com.example.jetiq.R
 
 @Suppress("DEPRECATION")
-class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
+class SettingsFragment : PreferenceFragmentCompat(),
+    SharedPreferences.OnSharedPreferenceChangeListener {
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
         setPreferencesFromResource(R.xml.root_preferences, rootKey)
@@ -41,25 +44,13 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
         when (themeOption) {
             "light" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                if (toggleDrawable != null) {
-                    toggleDrawable.drawerArrowDrawable.colorFilter =
-                        PorterDuffColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.colorText),
-                            PorterDuff.Mode.SRC_ATOP
-                        )
-                }
+                toggleDrawable?.drawerArrowDrawable?.color
             }
+
             "dark" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                if (toggleDrawable != null) {
-                    toggleDrawable.drawerArrowDrawable.colorFilter =
-                        PorterDuffColorFilter(
-                            ContextCompat.getColor(requireContext(), R.color.colorTextNight),
-                            PorterDuff.Mode.SRC_ATOP
-                        )
-                }
+                toggleDrawable?.drawerArrowDrawable?.color?.blue
             }
         }
     }
-
 }

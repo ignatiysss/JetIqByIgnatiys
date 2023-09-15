@@ -49,18 +49,17 @@ class ScheduleFragment : Fragment() {
 
         val dialog = AlertDialog.Builder(requireContext())
             .setView(dialogView)
-            .setPositiveButton("OK", null)
             .create()
 
-        // Зміна фону діалогового вікна
         dialog.setOnShowListener {
-            val background = ColorDrawable(
-                ContextCompat.getColor(
-                    requireContext(),
-                    R.color.dialogBackgroundColor
+            dialog.window?.setBackgroundDrawable(
+                ColorDrawable(
+                    ContextCompat.getColor(
+                        requireContext(),
+                        R.color.dialogBackgroundColor
+                    )
                 )
             )
-            dialog.window?.setBackgroundDrawable(background)
         }
 
         dialog.show()

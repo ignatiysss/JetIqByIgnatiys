@@ -5,4 +5,5 @@
     <attr name="customCircleColor" format="reference" />
     <attr name="customTextColorForToolBar" format="reference" />
     <attr name="customItemColorForToolBar" format="reference" />
+    <attr name="customDialogBackground" format="reference" />
 </resources>
