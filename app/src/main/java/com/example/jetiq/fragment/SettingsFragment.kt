@@ -44,12 +44,17 @@ class SettingsFragment : PreferenceFragmentCompat(),
         when (themeOption) {
             "light" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                toggleDrawable?.drawerArrowDrawable?.color
+                toggleDrawable?.getDrawerArrowDrawable()?.setColor(getResources().getColor(R.color.colorText))
+                mainActivity?.recreate()
+
             }
 
             "dark" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                toggleDrawable?.drawerArrowDrawable?.color?.blue
+                toggleDrawable?.getDrawerArrowDrawable()?.setColor(getResources().getColor(R.color.colorTextNight))
+                mainActivity?.recreate()
+
+
             }
         }
     }
