@@ -1,5 +1,6 @@
 package com.example.jetiq.fragment
 
+import android.content.Context
 import android.content.SharedPreferences
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
@@ -37,21 +38,33 @@ class SettingsFragment : PreferenceFragmentCompat(),
         }
     }
 
+    private fun saveThemeState(themeOption: String?) {
+        val sharedPreferences =
+            requireActivity().getSharedPreferences("app_settings", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("theme_preference", themeOption)
+        editor.apply()
+    }
+
+
     private fun applyTheme(themeOption: String?) {
         val mainActivity = activity as? MainActivity
         val toggleDrawable = mainActivity?.toggle
+        saveThemeState(themeOption)
 
         when (themeOption) {
             "light" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                toggleDrawable?.getDrawerArrowDrawable()?.setColor(getResources().getColor(R.color.colorText))
+                toggleDrawable?.getDrawerArrowDrawable()
+                    ?.setColor(getResources().getColor(R.color.colorText))
                 mainActivity?.recreate()
 
             }
 
             "dark" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                toggleDrawable?.getDrawerArrowDrawable()?.setColor(getResources().getColor(R.color.colorTextNight))
+                toggleDrawable?.getDrawerArrowDrawable()
+                    ?.setColor(getResources().getColor(R.color.colorTextNight))
                 mainActivity?.recreate()
 
 

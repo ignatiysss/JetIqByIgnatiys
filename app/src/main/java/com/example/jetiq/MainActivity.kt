@@ -1,5 +1,6 @@
 package com.example.jetiq
 
+import android.content.Context
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         drawer.addDrawerListener(toggle)
         drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED)
         toggle.syncState()
+        setHamburgerColorBasedOnTheme()
 
         supportFragmentManager.beginTransaction().addToBackStack(null)
             .replace(R.id.fragmentContainer_content_view, HomeFragment()).commit()
@@ -98,6 +100,31 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        setHamburgerColorBasedOnTheme()
+    }
+
+    private fun setHamburgerColorBasedOnTheme() {
+        val themeOption = getThemeState()
+        when (themeOption) {
+            "light" -> {
+                toggle?.getDrawerArrowDrawable()
+                    ?.setColor(getResources().getColor(R.color.colorText))
+            }
+
+            "dark" -> {
+                toggle?.getDrawerArrowDrawable()
+                    ?.setColor(getResources().getColor(R.color.colorTextNight))
+            }
+        }
+    }
+
+    private fun getThemeState(): String? {
+        val sharedPreferences = getSharedPreferences("app_settings", Context.MODE_PRIVATE)
+        return sharedPreferences.getString("theme_preference", "light")
     }
 
     private fun currentFragment(): Fragment? {
