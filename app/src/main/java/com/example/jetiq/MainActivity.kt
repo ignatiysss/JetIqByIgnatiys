@@ -13,6 +13,8 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.jetiq.databinding.ActivityMainBinding
 import com.example.jetiq.fragment.HomeFragment
+import com.example.jetiq.fragment.LogOfSuccessFragment
+import com.example.jetiq.fragment.MaterialFragment
 import com.example.jetiq.fragment.MessageFragment
 import com.example.jetiq.fragment.ScheduleMainFragment
 import com.example.jetiq.fragment.SettingsFragment
@@ -47,8 +49,7 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().addToBackStack(null)
             .replace(R.id.fragmentContainer_content_view, HomeFragment()).commit()
 
-        fab =
-            findViewById(R.id.fab)
+        fab = findViewById(R.id.fab)
         fab.setOnClickListener {
             if (currentFragment() is MessageFragment) {
 
@@ -82,17 +83,26 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_material -> {
-                    Toast.makeText(this, "Матеріали", Toast.LENGTH_SHORT).show()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer_content_view, MaterialFragment())
+                        .addToBackStack(null).commit()
+                    drawer.closeDrawers()
                     true
                 }
 
                 R.id.nav_success_log -> {
-                    Toast.makeText(this, "Журнал успіхів", Toast.LENGTH_SHORT).show()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer_content_view, LogOfSuccessFragment())
+                        .addToBackStack(null).commit()
+                    drawer.closeDrawers()
                     true
                 }
 
                 R.id.na_test_book -> {
-                    Toast.makeText(this, "Тестова книга", Toast.LENGTH_SHORT).show()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragmentContainer_content_view, MaterialFragment())
+                        .addToBackStack(null).commit()
+                    drawer.closeDrawers()
                     true
                 }
 
@@ -142,8 +152,7 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> {
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.addToBackStack(null)
-                    .replace(R.id.fragmentContainer_content_view, SettingsFragment())
-                    .commit()
+                    .replace(R.id.fragmentContainer_content_view, SettingsFragment()).commit()
                 return true
             }
         }
