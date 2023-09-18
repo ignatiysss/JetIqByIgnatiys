@@ -1,14 +1,9 @@
-package com.example.jetiq.fragment
+package com.example.jetiq.fragment.forMainActivity
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.content.ContextCompat
-import androidx.core.graphics.blue
-import androidx.core.graphics.toColor
 import androidx.preference.PreferenceFragmentCompat
 import com.example.jetiq.MainActivity
 import com.example.jetiq.R
@@ -55,16 +50,14 @@ class SettingsFragment : PreferenceFragmentCompat(),
         when (themeOption) {
             "light" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                toggleDrawable?.getDrawerArrowDrawable()
-                    ?.setColor(getResources().getColor(R.color.colorText))
+                toggleDrawable?.drawerArrowDrawable?.color = resources.getColor(R.color.colorText)
                 mainActivity?.recreate()
 
             }
 
             "dark" -> {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                toggleDrawable?.getDrawerArrowDrawable()
-                    ?.setColor(getResources().getColor(R.color.colorTextNight))
+                toggleDrawable?.drawerArrowDrawable?.color = resources.getColor(R.color.colorTextNight)
                 mainActivity?.recreate()
 
 

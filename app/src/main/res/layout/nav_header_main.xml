@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="180dp"
     android:fitsSystemWindows="true"
-    android:background="?attr/customBackgroundColor" >
+    android:background="?attr/colorPrimary" >
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageProfile"
@@ -41,18 +41,18 @@
             android:layout_height="wrap_content"
             android:text="@string/nav_header_name"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="#CFD8DC" />
+            android:textColor="?attr/customTextColorForToolBar" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/name_of_faculty"
-            android:textColor="#CFD8DC" />
+            android:textColor="?attr/customTextColorForToolBar" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nav_header_group"
-            android:textColor="#CFD8DC" />
+            android:textColor="?attr/customTextColorForToolBar" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

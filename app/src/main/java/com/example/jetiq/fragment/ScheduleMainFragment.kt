@@ -38,6 +38,8 @@ class ScheduleMainFragment : Fragment() {
             true
         }
 
+            (requireActivity() as MainActivity).supportActionBar?.title = "Заголовок:\n Підтекст"
+
         return binding.root
     }
 

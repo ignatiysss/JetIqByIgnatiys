@@ -13,12 +13,12 @@ import com.example.jetiq.databinding.FragmentBellsBinding
 
 class BellsFragment : Fragment() {
 
-    lateinit var binding: FragmentBellsBinding
+    private lateinit var binding: FragmentBellsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentBellsBinding.inflate(inflater, container, false)
 
         val bellsList = listOf(
@@ -70,7 +70,7 @@ class BellsFragment : Fragment() {
             }
 
             viewHolder.tvSubjectName.text = items[position]
-            viewHolder.tvSubjectNumber.text = (position + 1).toString()
+            (position + 1).toString().also { viewHolder.tvSubjectNumber.text = it }
 
             return view
         }

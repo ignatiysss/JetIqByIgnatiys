@@ -1,4 +1,4 @@
-package com.example.jetiq.fragment
+package com.example.jetiq.fragment.forMainActivity
 
 import android.os.Bundle
 import android.view.LayoutInflater
